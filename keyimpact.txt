@@ -1,0 +1,21 @@
+Ki418dB!
+inadev_user
+keyimpactcrmdbb.c3aucqaqhhuk.us-west-2.rds.amazonaws.com
+inadevdb
+
+mysql -h keyimpactcrmdbb.c3aucqaqhhuk.us-west-2.rds.amazonaws.com -u inadev_user -P3306 -p
+
+mysqldump -h keyimpactcrmdbb.c3aucqaqhhuk.us-west-2.rds.amazonaws.com -u inadev_user -P3306 -p inadevdb > inadevdb_28062019.sql
+
+keyimpactcrmdbb.c3aucqaqhhuk.us-west-2.rds.amazonaws.com
+inadevdb
+inadev_user
+Ki418dB!
+
+mysql -h quicksight.cvuj1mkzly9g.us-east-1.rds.amazonaws.com -u quicksight -P4306 -p 
+drop database keyimpactdev;
+create database keyimpactdev;
+'user' : 'quicksight',
+'password' : 'yhuOcvAhMpsH',
+
+mysql -h quicksight.cvuj1mkzly9g.us-east-1.rds.amazonaws.com -u quicksight -P4306 -p keyimpactdev < inadevdb_28062019.sql
