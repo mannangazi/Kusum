@@ -1,3 +1,3 @@
 #!/bin/bash
-ssh -tt support@10.100.99.70
+cd /tmp/pipeline
 echo "this is deploy text" >> deploy.txt
