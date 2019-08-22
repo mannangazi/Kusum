@@ -1,3 +1,3 @@
 #!/bin/bash
-ssh -tt support@10.100.99.70
+pwd
 echo "this is junit" >> junit.txt
