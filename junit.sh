@@ -1,3 +1,3 @@
 #!/bin/bash
-pwd
+cd /tmp/pipeline
 echo "this is junit" >> junit.txt
