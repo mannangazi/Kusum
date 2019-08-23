@@ -1,4 +1,4 @@
-diff Environment = 'Developement'
+def Environment = 'Developement'
 pipeline {
    agent any
    stages {
