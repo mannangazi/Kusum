@@ -9,8 +9,8 @@ pipeline {
 			}
        stage('compile') {
 	       environment  {
-		         Environment = 'Developement'  
-				 }
+		         Environment = "Developement"  
+		 }
 	       steps {		     
                    echo "compile successfully";
                    sh label: '', script: 'sh compile.sh'
@@ -19,9 +19,9 @@ pipeline {
             }
          }
         stage('junit')  {
-		     environment  {
-		         Environment = 'QC'  
-				 }
+	      environment  {
+		        Environment = "QC"  
+		 }
             steps {
                     echo "junit successfully";
                     sh label: '', script: 'sh junit.sh'
@@ -29,9 +29,9 @@ pipeline {
             }
         }
         stage('deploy') {
-		       environment  {
-		         Environment = 'Developement'  
-				 }
+		   environment  {
+		         Environment = "Production"  
+			 }
             steps { 
                     echo " deploy successfully";
                     sh label: '', script: 'sh deploy.sh'
