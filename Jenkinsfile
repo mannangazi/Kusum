@@ -24,7 +24,7 @@ pipeline {
             steps {
                     echo " deploy successfully";
                     sh label: '', script: 'sh deploy.sh'
-		    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} on ${env.Environment}"
+		    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} on ${Environment}"
             }
         }
 	}
