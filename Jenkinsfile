@@ -1,8 +1,5 @@
 pipeline {
    agent any
-	environment {
-		platform = 'Developement'
-		}
    stages {
        stage('Git-checkout') {
 	       steps {
@@ -11,6 +8,9 @@ pipeline {
 				 }
 			}
        stage('compile') {
+	       environment {
+		        platform = 'Developement'
+		       }
 	       steps {		     
                    echo "compile successfully";
                    sh label: '', script: 'sh compile.sh'
@@ -19,6 +19,9 @@ pipeline {
             }
          }
         stage('junit')  {
+	       environment {
+		        platform = 'QC'
+		       }
             steps {
                     echo "junit successfully";
                     sh label: '', script: 'sh junit.sh'
@@ -26,6 +29,9 @@ pipeline {
             }
         }
         stage('deploy') {
+	       environment {
+		        platform = 'Production'
+		       }
             steps { 
                     echo " deploy successfully";
                     sh label: '', script: 'sh deploy.sh'
