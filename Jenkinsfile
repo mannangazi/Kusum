@@ -1,4 +1,4 @@
-def Environment = 'Production'
+def Environment
 pipeline {
    agent any
    stages {
@@ -10,21 +10,28 @@ pipeline {
 			}
        stage('compile') {
 	       steps {
+		   Environment = "Developement"    
                    echo "compile successfully";
                    sh label: '', script: 'sh compile.sh'
+		   echo "Welcome to ${Environment} env."
+		       
             }
          }
         stage('junit')  {
             steps {
+		    Environment = "QC"   
                     echo "junit successfully";
                     sh label: '', script: 'sh junit.sh'
+		    echo "Welcome to ${Environment} env."
             }
         }
         stage('deploy') {
             steps {
+		    Environment = "Production"   
                     echo " deploy successfully";
                     sh label: '', script: 'sh deploy.sh'
 		    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} on ${Environment}"
+		    echo "Welcome to ${Environment} env."
             }
         }
 	}
