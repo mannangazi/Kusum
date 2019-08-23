@@ -14,7 +14,7 @@ pipeline {
 	       steps {		     
                    echo "compile successfully";
                    sh label: '', script: 'sh compile.sh'
-		   echo env.Environment
+		   echo "${env.Environment}"
 		       
             }
          }
@@ -25,7 +25,7 @@ pipeline {
             steps {
                     echo "junit successfully";
                     sh label: '', script: 'sh junit.sh'
-		    echo env.Environment
+		    echo "${env.Environment}"
             }
         }
         stage('deploy') {
@@ -36,7 +36,7 @@ pipeline {
                     echo " deploy successfully";
                     sh label: '', script: 'sh deploy.sh'
 		    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-		    echo env.Environment
+		    echo "${env.Environment}"
             }
         }
 	}
