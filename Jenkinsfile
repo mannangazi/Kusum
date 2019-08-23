@@ -1,7 +1,6 @@
 def Environment;
 node
 {
-   stages {
        stage('Git-checkout') 
 	   {
 		           echo "git checkout successfully";
@@ -29,8 +28,5 @@ node
                     sh label: '', script: 'sh deploy.sh'
 		    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} on ${Environment}"
 		    echo "Welcome to ${Environment} env."
-        }
-
-	}
-		
+        }		
 }
