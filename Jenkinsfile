@@ -10,7 +10,7 @@ pipeline {
 		           git credentialsId: '7ff0883b-5f93-4ad2-8489-50a6a2d195b6', url: 'https://github.com/mannangazi/Kusum.git'
 				 }
 			}
-       stage('compile') 
+       stage('compile') {
 	       steps {		     
                    echo "compile successfully";
                    sh label: '', script: 'sh compile.sh'
@@ -26,7 +26,6 @@ pipeline {
             }
         }
         stage('deploy') {
-		   environment  {
             steps { 
                     echo " deploy successfully";
                     sh label: '', script: 'sh deploy.sh'
