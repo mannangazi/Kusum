@@ -1,4 +1,3 @@
-def Environment;
 pipeline {
    agent any
    stages {
@@ -9,8 +8,10 @@ pipeline {
 				 }
 			}
        stage('compile') {
-	       steps {
-		   Environment = 'Developement'    
+	       environment  {
+		         Environment = 'Developement'  
+				 }
+	       steps {		     
                    echo "compile successfully";
                    sh label: '', script: 'sh compile.sh'
 		   echo "Welcome to ${Environment} env."
@@ -18,16 +19,20 @@ pipeline {
             }
          }
         stage('junit')  {
+		     environment  {
+		         Environment = 'QC'  
+				 }
             steps {
-		    Environment = 'QC'  
                     echo "junit successfully";
                     sh label: '', script: 'sh junit.sh'
 		    echo "Welcome to ${Environment} env."
             }
         }
         stage('deploy') {
-            steps {
-		    Environment = 'Production'  
+		       environment  {
+		         Environment = 'Developement'  
+				 }
+            steps { 
                     echo " deploy successfully";
                     sh label: '', script: 'sh deploy.sh'
 		    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} on ${Environment}"
