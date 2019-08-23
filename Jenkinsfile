@@ -1,6 +1,6 @@
-def Environment
-pipeline {
-   agent any
+def Environment;
+node
+{
    stages {
        stage('Git-checkout') {
 	       steps {
@@ -10,7 +10,7 @@ pipeline {
 			}
        stage('compile') {
 	       steps {
-		   Environment = 'Developement'    
+		   Environment = "Developement"    
                    echo "compile successfully";
                    sh label: '', script: 'sh compile.sh'
 		   echo "Welcome to ${Environment} env."
@@ -19,7 +19,7 @@ pipeline {
          }
         stage('junit')  {
             steps {
-		    Environment = 'QC'   
+		    Environment = "QC"   
                     echo "junit successfully";
                     sh label: '', script: 'sh junit.sh'
 		    echo "Welcome to ${Environment} env."
@@ -27,7 +27,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-		    Environment = 'Production'   
+		    Environment = "Production"  
                     echo " deploy successfully";
                     sh label: '', script: 'sh deploy.sh'
 		    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} on ${Environment}"
