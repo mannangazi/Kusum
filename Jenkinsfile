@@ -1,7 +1,7 @@
 pipeline {
    agent any
 	environment {
-		Environmet = 'Developement'
+		Environment = 'Developement'
    stages {
        stage('Git-checkout') {
 	       steps {
