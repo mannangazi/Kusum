@@ -1,4 +1,4 @@
-diff Environment = "Developement"
+diff Environment = 'Developement'
 pipeline {
    agent any
    stages {
