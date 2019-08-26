@@ -1,3 +1,10 @@
+def remote = [:]
+  remote.name = 'NTIA-TEST'
+  remote.host = '10.100.99.70'
+  remote.user = 'support'
+  remote.password = 'password@123'
+  remote.allowAnyHosts = true 
+
 pipeline {
    agent any
    stages {
@@ -39,5 +46,12 @@ pipeline {
 		    echo "${env.platform}"
             }
         }
+           stage('remote_deploy') {
+		   steps {
+	          sshPut remote: remote, from: 'test.txt', into: '.'
+                  sshCommand remote: remote, command: "ls"     
+		   }
+	   }
+		   
 	}		
 }
